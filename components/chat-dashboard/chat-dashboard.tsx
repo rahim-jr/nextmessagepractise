@@ -2,8 +2,12 @@
 
 import { Avatar, ScrollArea, Separator } from "radix-ui";
 import { ComposerAction, MemberItem, NavItem } from "@/components/chat-dashboard";
+import { getDicebearAvatar } from "@/components/chat-dashboard/dicebear-avatar";
 
 export function ChatDashboard() {
+  const accountEmail = "jsmith.mobbin@gmail.com";
+  const sidebarAvatarSrc = getDicebearAvatar(accountEmail);
+
   return (
     <main className="min-h-screen bg-[#f6f6f7] p-2 sm:p-3">
       <div className="mx-auto grid h-[calc(100vh-1rem)] w-full max-w-[1440px] grid-cols-1 overflow-hidden rounded-2xl border border-zinc-200 bg-white shadow-sm sm:h-[calc(100vh-1.5rem)] md:grid-cols-[260px_minmax(0,1fr)] xl:grid-cols-[260px_minmax(0,1fr)_280px]">
@@ -72,11 +76,16 @@ export function ChatDashboard() {
           <div className="flex items-center justify-between border-t border-zinc-200 px-4 py-3">
             <div className="flex min-w-0 items-center gap-2">
               <Avatar.Root className="inline-flex h-7 w-7 items-center justify-center overflow-hidden rounded-full bg-zinc-200">
+                <Avatar.Image
+                  className="h-full w-full object-cover"
+                  src={sidebarAvatarSrc}
+                  alt="Account avatar"
+                />
                 <Avatar.Fallback className="text-xs font-semibold text-zinc-700">
                   JM
                 </Avatar.Fallback>
               </Avatar.Root>
-              <p className="truncate text-sm text-zinc-700">jsmith.mobbin@gmail.com</p>
+              <p className="truncate text-sm text-zinc-700">{accountEmail}</p>
             </div>
             <button type="button" className="text-zinc-400 hover:text-zinc-700">
               ⌁

@@ -1,4 +1,5 @@
 import { Avatar } from "radix-ui";
+import { getDicebearAvatar } from "@/components/chat-dashboard/dicebear-avatar";
 
 type MemberItemProps = {
   name: string;
@@ -11,6 +12,8 @@ export function MemberItem({
   detail,
   accent = "bg-violet-300",
 }: MemberItemProps) {
+  const avatarSrc = getDicebearAvatar(name);
+
   const initials = name
     .split(" ")
     .map((word) => word[0])
@@ -21,6 +24,11 @@ export function MemberItem({
   return (
     <div className="flex items-center gap-2 rounded-lg px-2 py-1.5 hover:bg-zinc-100">
       <Avatar.Root className="inline-flex h-7 w-7 shrink-0 items-center justify-center overflow-hidden rounded-md bg-zinc-200 align-middle">
+        <Avatar.Image
+          className="h-full w-full object-cover"
+          src={avatarSrc}
+          alt={`${name} avatar`}
+        />
         <Avatar.Fallback
           className={`flex h-full w-full items-center justify-center text-[10px] font-semibold text-zinc-700 ${accent}`}
         >
