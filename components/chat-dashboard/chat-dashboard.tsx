@@ -1,6 +1,27 @@
 "use client";
 
 import { Avatar, ScrollArea, Separator } from "radix-ui";
+import {
+  LuArrowRight,
+  LuAtSign,
+  LuAudioLines,
+  LuCalendarDays,
+  LuChevronDown,
+  LuClock3,
+  LuEllipsis,
+  LuFileText,
+  LuHash,
+  LuMail,
+  LuPlus,
+  LuPuzzle,
+  LuRefreshCw,
+  LuSettings2,
+  LuSparkles,
+  LuUserPlus,
+  LuUserRound,
+  LuUsers,
+  LuZap,
+} from "react-icons/lu";
 import { ComposerAction, MemberItem, NavItem } from "@/components/chat-dashboard";
 import { getDicebearAvatar } from "@/components/chat-dashboard/dicebear-avatar";
 
@@ -14,7 +35,9 @@ export function ChatDashboard() {
         <aside className="hidden min-h-0 flex-col border-r border-zinc-200 bg-zinc-50/70 md:flex">
           <div className="flex items-center justify-between px-4 py-3">
             <p className="text-sm font-medium text-zinc-800">Janes Studio</p>
-            <span className="text-zinc-500">⌄</span>
+            <button type="button" className="text-zinc-500 hover:text-zinc-700">
+              <LuChevronDown className="h-4 w-4" />
+            </button>
           </div>
 
           <div className="px-4 pb-3">
@@ -29,8 +52,8 @@ export function ChatDashboard() {
           <ScrollArea.Root className="min-h-0 flex-1 overflow-hidden">
             <ScrollArea.Viewport className="h-full w-full px-2 pb-3">
               <div className="space-y-1 px-2">
-                <NavItem label="Inbox" count={1} icon="✉" />
-                <NavItem label="Drafts" icon="▢" />
+                <NavItem label="Inbox" count={1} icon={<LuMail className="h-4 w-4" />} />
+                <NavItem label="Drafts" icon={<LuFileText className="h-4 w-4" />} />
               </div>
 
               <Separator.Root className="mx-2 my-3 h-px bg-zinc-200" />
@@ -40,10 +63,14 @@ export function ChatDashboard() {
                   Chat
                 </p>
                 <div className="space-y-1">
-                  <NavItem label="jane x threads team" icon="◈" />
-                  <NavItem label="jsmith.mobbin@gmail.com" active icon="✦" />
-                  <NavItem label="Jane Smith (you)" icon="◉" />
-                  <NavItem label="Add teammates" icon="＋" />
+                  <NavItem label="jane x threads team" icon={<LuUsers className="h-4 w-4" />} />
+                  <NavItem
+                    label="jsmith.mobbin@gmail.com"
+                    active
+                    icon={<LuSparkles className="h-4 w-4" />}
+                  />
+                  <NavItem label="Jane Smith (you)" icon={<LuUserRound className="h-4 w-4" />} />
+                  <NavItem label="Add teammates" icon={<LuUserPlus className="h-4 w-4" />} />
                 </div>
               </div>
 
@@ -54,8 +81,8 @@ export function ChatDashboard() {
                   Channels
                 </p>
                 <div className="space-y-1">
-                  <NavItem label="general" icon="#" />
-                  <NavItem label="Add channel" icon="＋" />
+                  <NavItem label="general" icon={<LuHash className="h-4 w-4" />} />
+                  <NavItem label="Add channel" icon={<LuPlus className="h-4 w-4" />} />
                 </div>
               </div>
 
@@ -66,8 +93,11 @@ export function ChatDashboard() {
                   Apps
                 </p>
                 <div className="space-y-1">
-                  <NavItem label="Google Calendar" icon="◷" />
-                  <NavItem label="Add integration" icon="＋" />
+                  <NavItem
+                    label="Google Calendar"
+                    icon={<LuCalendarDays className="h-4 w-4" />}
+                  />
+                  <NavItem label="Add integration" icon={<LuPuzzle className="h-4 w-4" />} />
                 </div>
               </div>
             </ScrollArea.Viewport>
@@ -88,7 +118,7 @@ export function ChatDashboard() {
               <p className="truncate text-sm text-zinc-700">{accountEmail}</p>
             </div>
             <button type="button" className="text-zinc-400 hover:text-zinc-700">
-              ⌁
+              <LuSettings2 className="h-4 w-4" />
             </button>
           </div>
         </aside>
@@ -100,13 +130,13 @@ export function ChatDashboard() {
             </p>
             <div className="flex items-center gap-3 text-zinc-400">
               <button type="button" className="hover:text-zinc-700">
-                ⟳
+                <LuRefreshCw className="h-4 w-4" />
               </button>
               <button type="button" className="hover:text-zinc-700">
-                ⚡
+                <LuZap className="h-4 w-4" />
               </button>
               <button type="button" className="hover:text-zinc-700">
-                ⋯
+                <LuEllipsis className="h-4 w-4" />
               </button>
             </div>
           </header>
@@ -122,10 +152,13 @@ export function ChatDashboard() {
                 />
                 <div className="mt-2 flex items-center justify-between">
                   <div className="flex items-center gap-1">
-                    <ComposerAction label="+" />
-                    <ComposerAction label="|||" />
-                    <ComposerAction label="◷" />
-                    <ComposerAction label="@" />
+                    <ComposerAction label="Add" icon={<LuPlus className="h-4 w-4" />} />
+                    <ComposerAction
+                      label="Voice input"
+                      icon={<LuAudioLines className="h-4 w-4" />}
+                    />
+                    <ComposerAction label="Schedule" icon={<LuClock3 className="h-4 w-4" />} />
+                    <ComposerAction label="Mention" icon={<LuAtSign className="h-4 w-4" />} />
                   </div>
                   <button
                     type="button"
@@ -165,7 +198,7 @@ export function ChatDashboard() {
               Private Threads
             </p>
             <button type="button" className="text-zinc-400 hover:text-zinc-700">
-              →
+              <LuArrowRight className="h-4 w-4" />
             </button>
           </div>
 

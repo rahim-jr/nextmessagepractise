@@ -1,11 +1,13 @@
+import type { ReactNode } from "react";
+
 type NavItemProps = {
   label: string;
   active?: boolean;
   count?: number;
-  icon?: string;
+  icon?: ReactNode;
 };
 
-export function NavItem({ label, active, count, icon = "•" }: NavItemProps) {
+export function NavItem({ label, active, count, icon }: NavItemProps) {
   return (
     <button
       type="button"
@@ -15,7 +17,7 @@ export function NavItem({ label, active, count, icon = "•" }: NavItemProps) {
           : "text-zinc-600 hover:bg-zinc-200/50 hover:text-zinc-900"
       }`}
     >
-      <span className="mr-2 text-zinc-500">{icon}</span>
+      {icon ? <span className="mr-2 text-zinc-500">{icon}</span> : null}
       <span className="truncate">{label}</span>
       {typeof count === "number" ? (
         <span className="ml-auto rounded bg-zinc-200 px-2 py-0.5 text-xs text-zinc-600">
