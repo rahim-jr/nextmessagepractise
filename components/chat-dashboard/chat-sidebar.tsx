@@ -5,6 +5,7 @@ import {
   LuFileText,
   LuHash,
   LuMail,
+  LuMessageSquare,
   LuPlus,
   LuPuzzle,
   LuSettings2,
@@ -46,7 +47,10 @@ export function ChatSidebar({
       }`}
     >
       <div className="flex items-center justify-between px-4 py-3">
-        <p className="text-lg font-bold text-zinc-800">Janes Studio</p>
+        <p className="flex items-center gap-2 text-lg font-bold text-zinc-800">
+          <LuMessageSquare className="h-5 w-5" />
+          <span>SLACK CLONE</span>
+        </p>
         <div className="flex items-center gap-2">
           <button type="button" className="text-zinc-500 hover:text-zinc-700">
             <LuChevronDown className="h-4 w-4" />
@@ -65,7 +69,11 @@ export function ChatSidebar({
       <ScrollArea.Root className="min-h-0 flex-1 overflow-hidden">
         <ScrollArea.Viewport className="h-full w-full px-2 pb-3">
           <div className="space-y-1 px-2">
-            <NavItem label="Unread" count={1} icon={<LuMail className="h-4 w-4" />} />
+            <NavItem
+              label="Unread"
+              count={1}
+              icon={<LuMail className="h-4 w-4" />}
+            />
             <NavItem label="Threads" icon={<LuUsers className="h-4 w-4" />} />
             <NavItem label="Drafts" icon={<LuFileText className="h-4 w-4" />} />
           </div>
@@ -103,7 +111,10 @@ export function ChatSidebar({
             </p>
             <div className="space-y-1">
               <NavItem label="general" icon={<LuHash className="h-4 w-4" />} />
-              <NavItem label="Add channel" icon={<LuPlus className="h-4 w-4" />} />
+              <NavItem
+                label="Add channel"
+                icon={<LuPlus className="h-4 w-4" />}
+              />
             </div>
           </div>
 
@@ -118,7 +129,10 @@ export function ChatSidebar({
                 label="Google Calendar"
                 icon={<LuCalendarDays className="h-4 w-4" />}
               />
-              <NavItem label="Add integration" icon={<LuPuzzle className="h-4 w-4" />} />
+              <NavItem
+                label="Add integration"
+                icon={<LuPuzzle className="h-4 w-4" />}
+              />
             </div>
           </div>
         </ScrollArea.Viewport>
