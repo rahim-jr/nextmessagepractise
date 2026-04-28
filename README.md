@@ -25,8 +25,16 @@ Open:
 
 Vercel:
 
+- `https://slackclone-coral.vercel.app/?viewer=1`
 - `https://slackclone-coral.vercel.app/?viewer=2`
-- `https://slackclone-coral.vercel.app/?viewer=2`
+
+## Demo Video
+
+<video controls width="900" src="./video/project.mp4">
+  Your browser does not support the video tag.
+</video>
+
+Direct file link: [video/project.mp4](./video/project.mp4)
 
 ## Local API Endpoints
 
