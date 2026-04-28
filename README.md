@@ -1,36 +1,52 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Chat Dashboard (Next.js)
 
-## Getting Started
+Lightweight Slack-style chat UI built with Next.js, React, Tailwind, and Radix primitives.
 
-First, run the development server:
+## What It Does
+
+- 3-pane chat dashboard UI (sidebar, conversation, member panel)
+- Simulated multi-user chat using local in-memory API state
+- Two viewer modes via URL params:
+  - `?viewer=1` -> Jhon
+  - `?viewer=2` -> Jane
+- Shared group + direct thread with polling-based sync
+
+## Run Locally
 
 ```bash
+npm install
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Open:
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+- `http://localhost:3000/?viewer=1`
+- `http://localhost:3000/?viewer=2`
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+Vercel:
 
-## Learn More
+- `https://slackclone-coral.vercel.app/?viewer=2`
+- `https://slackclone-coral.vercel.app/?viewer=2`
 
-To learn more about Next.js, take a look at the following resources:
+## Local API Endpoints
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+- `GET /api/v1/users/1` -> snapshot for Jhon
+- `GET /api/v1/users/2` -> snapshot for Jane
+- `GET /api/v1/chats/chat-group` -> group thread messages
+- `GET /api/v1/chats/chat-direct` -> direct thread messages
+- `POST /api/v1/chats/:chatId` -> send message
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+Example `POST` body:
 
-## Deploy on Vercel
+```json
+{
+  "senderId": "jhon",
+  "text": "Hello team"
+}
+```
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## Scripts
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+- `npm run dev` - start development server
+- `npm run lint` - run ESLint
+- `npm run build` - production build
