@@ -28,13 +28,9 @@ Vercel:
 - `https://slackclone-coral.vercel.app/?viewer=1`
 - `https://slackclone-coral.vercel.app/?viewer=2`
 
-## Demo Video
+## Demo Preview
 
-<video controls width="900" src="./video/project.mp4">
-  Your browser does not support the video tag.
-</video>
-
-Direct file link: [video/project.mp4](./video/project.mp4)
+![Chat dashboard demo](./video/project.gif)
 
 ## Local API Endpoints
 
